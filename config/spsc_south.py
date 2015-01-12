@@ -6,7 +6,7 @@ ORIENTATION_SLUG = 'south'
 DEFAULT_FLOOR = 'lower-level'
 PLACEMENT = 'lower-level'
 
-ANALYTICS = 'UA-382464-20'
+ANALYTICS = ''
 
 ORIGIN = {
     'x': 381,

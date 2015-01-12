@@ -20,5 +20,6 @@ tideSDK/Coffman Memorial Union Cube/packages/osx/bundle/Coffman Memorial Union C
 node_modules
 
 packaged-apps/*.dmg
+.ropeproject
 # Always store .gitkeep files
 !.gitkeep
