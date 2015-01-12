@@ -1,0 +1,17 @@
+{%- extends "layout/base.html" -%}
+
+{# Put Building-specific assets in this file #}
+
+{%- block css -%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ "/static/css/minified/"|tidesrc ~ config.BUILDING_SLUG ~ "-base.min.css"}}">
+
+    {% if config.DIRECTORY_LOCATION == 'South' %}
+    <link rel="stylesheet" href="{{ "/static/css/minified/cmu-south.min.css"|tidesrc }}" type="text/css" media="screen" />
+    {%- endif -%}
+
+{%- endblock css -%}
+
+{%- block js -%}
+{{ super() }}
+{%- endblock js -%}

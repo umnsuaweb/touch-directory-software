@@ -1,0 +1,17 @@
+{% if config.BUILDING_SLUG == 'cmu' %}
+<ul id="floor-selector" class="cmu first-floor">
+    <li><a id="fifth-floor-selector" class="floor-selector-link touch-button fifth-floor inactive" href="{{ "/view-location/83/"|tidehref }}">5</a></li>
+    <li><a id="fourth-floor-selector" class="floor-selector-link touch-button fourth-floor inactive" href="{{ "/view-location/82/"|tidehref }}">4</a></li>
+    <li><a id="third-floor-selector" class="floor-selector-link touch-button third-floor inactive" href="{{ "/by-floor/third-floor/"|tidehref }}">3</a></li>
+    <li><a id="second-floor-selector" class="floor-selector-link touch-button second-floor inactive" href="{{ "/by-floor/second-floor/"|tidehref }}">2</a></li>
+    <li><a id="first-floor-selector" class="floor-selector-link touch-button first-floor" href="{{ "/by-floor/first-floor/"|tidehref }}">1</a></li>
+    <li><a id="ground-floor-selector" class="floor-selector-link touch-button ground-floor inactive" href="{{ "/by-floor/ground-floor/"|tidehref }}">G</a></li>
+    <li><a id="basement-floor-selector" class="floor-selector-link touch-button basement basement-floor inactive" href="{{ "/by-floor/basement/"|tidehref }}">B</a></li>
+</ul>
+{% elif config.BUILDING_SLUG == 'spsc' %}
+<ul id="floor-selector" class="cmu lower-level">
+    <li><a id="second-floor-selector" class="floor-selector-link touch-button second-floor inactive" href="{{ "/by-floor/second-floor/"|tidehref }}">2</a></li>
+    <li><a id="first-floor-selector" class="floor-selector-link touch-button first-floor inactive" href="{{ "/by-floor/first-floor/"|tidehref }}">1</a></li>
+    <li><a id="lower-level-selector" class="floor-selector-link touch-button lower-level current-floor" href="{{ "/by-floor/lower-level/"|tidehref }}">L</a></li>
+</ul>
+{% endif %}

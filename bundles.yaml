@@ -1,0 +1,155 @@
+basejs:
+        contents: js/dependencies/base.js
+
+fancyboxjs:
+        contents: js/dependencies/jquery.fancybox-1.3.1.js
+
+stdlibjs:
+        contents: js/std-lib.js
+
+jsdependencies:
+        contents:
+                - basejs
+                - fancyboxjs
+                - stdlibjs
+
+directoryjs:
+        filters: jsmin
+        contents:
+                - js/directory.js
+
+mainjs:
+        output: js/minified/directory.min.js
+        contents:
+                - jsdependencies
+                - directoryjs
+
+findeventjs:
+        filters: jsmin
+        output: js/minified/find-event.min.js
+        contents:
+                - js/pages/find-event.js
+pagesjs:
+        filters: jsmin
+        output: js/minified/pages.min.js
+        contents:
+                - js/pages/pages.js
+bycategoryjs:
+        filters: jsmin
+        output: js/minified/list-view.min.js
+        contents:
+                - pagesjs
+                - js/pages/list-view.js
+
+quickfindjs:
+        filters: jsmin
+        output: js/minified/quick-find.min.js
+        contents:
+                - js/pages/quick-find.js
+
+viewlocationjs:
+        filters: jsmin
+        output: js/minified/view-location.min.js
+        contents:
+                - js/pages/view-location.js
+
+cmu_base_css:
+        filters: 
+                - scss
+                - cssmin
+        output: css/minified/cmu-base.min.css
+        contents:
+                - sass/directory.scss
+                - sass/directory-cmu.scss
+
+spsc_base_css:
+        output: css/minified/spsc-base.min.css
+        contents:
+                - sass/directory.scss
+                - sass/directory-spsc.scss
+
+by_category_css:
+        filters:
+                - scss
+                - cssmin
+        output: css/minified/by-category.min.css
+        contents:
+                - sass/pages/list-view.scss
+
+by_floor_css:
+        filters: 
+                - scss
+                - cssmin
+        output: css/minified/by-floor.min.css
+        contents:
+                - sass/pages/by-floor.scss
+
+find_event_css:
+        filters:
+                - scss
+                - cssmin
+        output: css/minified/find-event.min.css
+        contents:
+                - sass/pages/find-event.scss
+
+home_cmu_cube_css:
+        filters:
+                - scss
+                - cssmin
+        output: css/minified/home-cube-north.min.css
+        contents:
+                - sass/pages/home.scss
+                - sass/pages/home-cmu.scss
+                - sass/pages/home-cube.scss
+
+home_cmu_north_css:
+        filters:
+                - scss
+                - cssmin
+        output: css/minified/home-cmu-north.min.css
+        contents:
+                - sass/pages/home.scss
+                - sass/pages/home-cmu.scss
+                - sass/pages/home-north.scss
+
+home_cmu_south_css:
+        filters:
+                - scss
+                - cssmin
+        output: css/minified/home-cmu-south.min.css
+        contents:
+                - sass/pages/home.scss
+                - sass/pages/home-cmu.scss
+                - sass/pages/home-south.scss
+
+home_spsc_south_css:
+        filters:
+                - scss
+                - cssmin
+        output: css/minified/home-spsc.min.css
+        contents:
+                - sass/pages/home-spsc.scss
+
+view_location_css:
+        filters:
+                - scss
+                - cssmin
+        output: css/minified/view-location.min.css
+        contents:
+                - sass/pages/view-location.scss
+
+campus_map_css:
+        filters:
+                - scss
+                - cssmin
+        output: css/minified/campus-map.min.css
+        contents:
+                - sass/pages/campus-map.scss
+
+quick_find_css:
+        filters:
+                - scss
+                - cssmin
+        output: css/minified/quick-find.min.css
+        contents:
+                - sass/pages/quick-find.scss

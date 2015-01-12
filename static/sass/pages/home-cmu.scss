@@ -1,0 +1,28 @@
+/*--------------------------------------------------
+[Home Screen CMU Stylesheet]
+
+Author(s):	 SUA Web Team
+
+[Table of contents]
+1. Layout
+		1.1. List
+
+--------------------------------------------------*/
+
+/* ----- [1. Layout] ----- */
+
+div#home-container div {
+    &#home-floor-map {
+        height: 500px;
+        position: absolute;
+        right: -45px;
+        top: 150px;
+        width: 600px;
+        z-index: 0;
+    }
+    &#diagram-title {
+        left: 40px;
+        position: relative;
+        top: 30px;
+    }
+}

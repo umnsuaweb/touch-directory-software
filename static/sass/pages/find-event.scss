@@ -1,0 +1,54 @@
+@import "../csspinner";
+/*--------------------------------------------------
+[Find-Event View Stylesheet]
+
+Author(s):	 SUA Web Team
+
+--------------------------------------------------*/
+
+a.touch-button {
+    &.arrow {
+        height: 1.2em;
+        width: 1.2em;
+    }
+    &.event {
+        span {
+            height: 1.2em;
+            width: 1.2em;
+            background: url(../images/icon-small-arrow.png) no-repeat 50% 50%;
+        }
+        padding: 0 5px;
+    }
+}
+
+#event-list {
+    height: 545px;
+    overflow: hidden;
+    div.page {
+        height: 570px;
+        margin: 10px 0 0 0;
+        width: 100%;
+    }
+}
+
+#event-list-container {
+    height: 655px;
+}
+
+.csspinner.line:after {
+    height: 40px;
+}
+
+#loading-message {
+    font-size: 3em;
+    padding-top: 15%;
+}
+
+.loading {
+    text-align: center;
+    img {
+        display: block;
+        margin: 20px auto;
+    }
+}
+

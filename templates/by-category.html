@@ -1,0 +1,47 @@
+{%- extends "layout/directory.html" -%}
+
+{%- block css -%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ "/static/css/minified/by-category.min.css"|tidesrc }}">
+{%- endblock css -%}
+
+{%- block js -%}
+    {{ super() }}
+    <script src="{{ "/static/js/minified/list-view.min.js"|tidesrc }}"></script>
+{%- endblock js -%}
+
+{%- block body -%}
+<div id="list-view-header">
+    <div class="third align-left">
+    {%- if pages|count > 1 -%}
+        <p>Pages:
+        {%- for page in pages -%}
+            <a href="{{ "#" class="touch-button open-page-" ~ {{ loop.index }} }}">{{ loop.index }}</a>
+        {%- endfor -%}
+        </p>
+    {%- endif -%}
+    </div>
+</div>
+
+<div id="list-view">
+{%- for page_number, columns in pages.iteritems() -%}
+    <div id="page-{{ page_number }}" class="page">
+    {%- for column in columns -%}
+        {%- for data in column -%}
+            <div class="column">
+                <h3 class="column-header">{{ data.header }}</h3>
+                {%- for item in data.rows -%}
+                <div class="item">
+                    <a href="{{ item.url|tidehref }}" class="touch-button arrow"><span>Go to {{ item.title }}</span></a>
+                    <h4 class="name">{{ item.title }}</h4>
+                    <p>Room {{ item.room }}</p>
+                </div>
+                {%- endfor -%}
+            </div>
+        {%- endfor -%}
+    {%- endfor -%}
+    </div>
+{%- endfor -%}
+</div>
+
+{%- endblock body -%}

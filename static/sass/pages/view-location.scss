@@ -1,0 +1,106 @@
+/*--------------------------------------------------
+[Location View Stylesheet]
+
+Author(s):	 SUA Web Team
+
+[Table of contents]
+1. Layout
+2. Location details
+	2.1. Details
+	2.2. Photo
+
+--------------------------------------------------*/
+
+/* ----- [1. Layout] ----- */
+
+#location-details-floor-map {
+  position: relative;
+  div.diagram {
+    left: 495px;
+    position: absolute;
+    top: 20px;
+    &.second-floor {
+      left: 470px;
+    }
+    &.ground-floor {
+      left: 465px;
+    }
+    &.basement {
+      left: 455px;
+    }
+  }
+  #diagram-title {
+    left: 470px;
+    position: absolute;
+    top: 560px;
+  }
+}
+
+/* ----- [2. Location details] ----- */
+
+#location-details {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.6);
+  color: #FFF;
+  padding: 10px;
+  width: 420px;
+  h2 {
+    font-size: 2.9em;
+    line-height: 100%;
+    margin: 0px 0px 0.2em;
+  }
+  h3 {
+    color: #f7b315;
+    margin: 0px 0px 0.5em;
+  }
+  p.start-over {
+    clear: both;
+    padding-top: 10px;
+  }
+  dl {
+    border-bottom: 1px solid #9A2036;
+    font-family: "Chalet-LondonNineteenEighty", "Lucida Grande", Arial, sans-serif;
+    margin-bottom: 1em;
+    padding-bottom: 0.5em;
+    dt, dd {
+      display: inline;
+    }
+    dt.phone:before {
+      content: "- ";
+    }
+  }
+  dt.floor-map {
+    display: none;
+  }
+  dd.floor-map {
+    display: block;
+    margin: 5px 0px;
+  }
+  a.photo {
+    display: inline-block;
+    float: right;
+    margin-left: 7px;
+    padding: 7px 7px 2px 7px;
+    text-align: center;
+    img {
+      -webkit-border-radius: 10px;
+    }
+    span {
+      background: url(../images/icon-zoom.png) no-repeat left center;
+      display: block;
+      margin: 2px auto;
+      padding-left: 20px;
+      width: 40px;
+    }
+  }
+}
+
+/* ----- [2.1. Details] ----- */
+
+/* ----- [2.2. Photo] ----- */
+
+#fancybox-overlay {
+  z-index: 1000;
+  /* Since overlay is transparent, "truly" make everywhere close the image */
+}

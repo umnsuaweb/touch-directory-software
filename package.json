@@ -1,0 +1,17 @@
+{
+  "name": "touch-directory",
+  "version": "0.3.0",
+  "jsRoot": "static/js",
+  "jsMinDest": "static/js/minified",
+  "sassRoot": "static/sass",
+  "sassPages": "static/sass/pages",
+  "cssMinDest": "static/css/minified",
+  "devDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-sass": "^0.7.3",
+    "grunt-contrib-watch": "~0.6.1"
+  }
+}

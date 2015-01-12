@@ -1,0 +1,91 @@
+/*--------------------------------------------------
+[List View Stylesheet]
+
+Author(s):   SUA Web Team
+
+[Table of contents]
+1. Header
+2. Location list
+    2.1. Pagination
+    2.2. Columns
+3. Quick find button
+--------------------------------------------------*/
+
+/* ----- [1. Header] ----- */
+
+div {
+  &#list-view-header {
+    font-size: 1.8em;
+    height: 60px;
+    line-height: 1.5em;
+    a.touch-button {
+      margin-left: 10px;
+      width: 30px;
+      text-align: center;
+      &.maroon {
+        height: 35px;
+        width: auto;
+      }
+    }
+  }
+  &#list-view {
+    clear: both;
+    height: 485px;
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+    width: 1350px;
+    div {
+      &.page {
+        height: 440px;
+        left: 0px;
+        position: absolute;
+        width: 1350px;
+      }
+      &#page-2 {
+        left: 1350px;
+      }
+      &#page-3 {
+        left: 2700px;
+      }
+      &.column {
+        vertical-align: top;
+        float: left;
+        width: 300px;
+        margin-right: 35px;
+        h3 {
+          border-bottom: 1px solid #BEBEBE;
+          font-size: 1.8em;
+          height: 25px;
+          margin: 10px 0px 15px;
+          text-align: left;
+        }
+      }
+      &.item {
+        padding: 0px 40px 15px 0px;
+        height: 100px;
+        width: 300px;
+        h4 {
+          width: 210px;
+          &.name {
+            font-size: 1.3em;
+            margin: 0px 0px 0px 90px;
+          }
+        }
+        p {
+          margin: 0.5em 0px 0px 90px;
+          width: 210px;
+        }
+        a.touch-button {
+          float: left;
+        }
+      }
+    }
+  }
+}
+
+/* ----- [2. Location list] ----- */
+
+/* ----- [2.1. Pagination] ----- */
+
+/* ----- [2.2. Columns] ----- */

@@ -1,0 +1,58 @@
+{% extends "layout/directory.html" %}
+
+{% block css %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ "/static/css/minified/campus-map.min.css"|tidesrc }}">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link rel="stylesheet" href="/static/css/minified/campus-map.min.css" />
+{% endblock css %}
+
+{% block js %}
+    {{ super() }}
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="/static/js/minified/campus-map.min.js"></script>
+    <script type="text/javascript">
+
+    // initialize map -- maxZoom is not being enforced
+    var map = L.map("campus_map", { center : new L.LatLng({{ latitude }}, {{ longitude }}), zoom : {{ zoom }}, minZoom : 15, maxZoom : 18, maxBounds : new L.LatLngBounds([45.005, -93.2652], [44.96, -93.155]), attributionControl: false } );
+
+    var marker = L.marker([{{ latitude }}, {{ longitude }}]).addTo(map);
+    marker.bindPopup("<b>You Are Here</b>").openPopup();
+
+    // set default map tiles
+    var DefaultMap = L.tileLayer("http://{s}.tiles.mapbox.com/v3/umnurelations.i499i07l/{z}/{x}/{y}.png", { detectRetina: true }).addTo(map);
+
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    // initialize base maps -- this section will probably not be used once we generate our own tileset
+
+    var BaseMaps = { "Default Map" : DefaultMap };
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // apply features to map object
+
+    function GreenSpaceStyle() { return { color : "#00ff00", weight : 0, opacity : 0.65, fillOpacity : 0 }; }
+    var GreenSpaceLayer = L.geoJson(GeoGreenSpace, {onEachFeature:GreenSpaceFeatures, style:GreenSpaceStyle}).addTo(map);
+
+    function ParkingStyle() { return { color : "#0B3D4C", weight : 0, opacity : 0.65, fillOpacity : 0 }; }
+    var ParkingLayer = L.geoJson(GeoParking, {onEachFeature:ParkingFeatures, style:ParkingStyle}).addTo(map);
+
+    function BuildingStyle() { return { color : "#84404E", weight : 0, opacity : 0, fillOpacity : 0 }; }
+    var BuildingLayer = L.geoJson(GeoBuilding, {onEachFeature:BuildingFeatures, style:BuildingStyle}).addTo(map);
+
+    // clear highlights when non-features are clicked
+    function ClearHighlight(e) {
+        BuildingLayer.setStyle({fillOpacity: 0});
+        ParkingLayer.setStyle({fillOpacity: 0});
+        GreenSpaceLayer.setStyle({fillOpacity: 0});
+    }
+    map.on("click", ClearHighlight);
+
+    // map scale in bottom left
+    L.control.scale().addTo(map);
+    </script>
+{% endblock js %}
+
+{% block body %}
+<div id="campus_map"  style="width: 1350px; height: 600px"></div>
+<div class="popup-container hidden"><div class="popup-extended"></div></div>
+{% endblock body %}

@@ -1,0 +1,69 @@
+{%- extends "layout/directory.html" -%}
+
+{%- block css -%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ "/static/css/minified/home-"|tidesrc ~ config.BUILDING_SLUG ~ "-" ~ config.DIRECTORY_LOCATION|lower ~ ".min.css" }}">
+{%- endblock css -%}
+
+{%- block js -%}
+    {{ super() }}
+    <script src="{{ "/static/js/minified/pages.min.js"|tidesrc }}"></script>
+    <script src="{{ "/static/js/minified/home.min.js"|tidesrc }}"></script>
+    <script>
+        fsc = new FloorSelectorController();
+        fsc.setCurrent(DEFAULT_FLOOR);
+    </script>
+{%- endblock js -%}
+
+{%- block body -%}
+<div id="home-container">
+
+    <div id="more-options-indicator">Find Events, Restrooms, Vending, &amp; more <span>&uarr;</span></div>
+
+    {% include 'includes/diagram.html' %}
+
+    {# These locations are output statically because we need finer control over their grouping than what currently exists in the database #}
+    <div id="location-list">
+    {% for space in spaces|sort(attribute='title') -%}
+
+        {% if loop.first %}
+        <div class="third">
+            <table class="long-rooms">
+                <tbody>
+        {% endif %}
+
+        {% if loop.index is divisibleby 19 %}
+                </tbody>
+            </table>
+        </div>
+        <div class="third">
+            <table>
+                <tbody>
+        {% endif %}
+
+                    {% if space.url %}
+                    <tr class="tr-has-link">
+                        <th>
+                            <a href="{{ space.url|tidehref }}">{{ space.title }}</a>
+                        </th>
+                        <td>{{ space.room }}</td>
+                    </tr>
+                    {% else %}
+                    <tr class="tr-has-link">
+                        <th>
+                            <a href="{{ "/view-location/"|tidesrc }}{{ space.id }}{{"/"|tide_after_href }}"> {{ space.title }}</a>
+                        </th>
+                        <td>{{ space.room }}</td>
+                    </tr>
+                    {% endif %}
+
+        {% if loop.last %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+
+    {%- endfor %}
+    </div>
+</div>
+{%- endblock body -%}

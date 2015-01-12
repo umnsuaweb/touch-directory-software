@@ -1,0 +1,226 @@
+// html, body {
+//   margin: 0 0;
+//   padding: 0 0;
+// }
+
+.leaflet-popup-content-wrapper {
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+}
+
+.leaflet-popup-tip {
+  width: 8px;
+  height: 12px;
+}
+
+div#campus_map {
+  border: 1px solid #999;
+  height: 600px !important;
+  width: 1350px !important;
+}
+
+.popup-container {
+  position: absolute;
+  z-index: 1200;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  background-color: rgba(50, 50, 50, 0.75);
+  filter: alpha(opacity = 0);
+  opacity: 0;
+  &.visible {
+    filter: alpha(opacity = 1);
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+  }
+  &.hidden {
+    height: 0px;
+    width: 0px;
+  }
+  -webkit-transition: opacity 0.2s ease;
+  -moz-transition: opacity 0.2s ease;
+  -o-transition: opacity 0.2s ease;
+  -ms-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+  &.visible {
+    -webkit-transition: opacity 0.2s ease;
+    -moz-transition: opacity 0.2s ease;
+    -o-transition: opacity 0.2s ease;
+    -ms-transition: opacity 0.2s ease;
+    transition: opacity 0.2s ease;
+  }
+}
+
+.popup-extended {
+  font-family: Arial;
+  position: relative;
+  top: 30px;
+  margin: 0 auto;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  background-color: #fff;
+  width: 100%;
+  max-width: 640px;
+  -webkit-box-shadow: 0px 5px 8px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0px 5px 8px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 5px 8px rgba(50, 50, 50, 0.75);
+  -webkit-transform: scale3d(0.9, 0.9, 0.9);
+  -moz-transform: scale3d(0.9, 0.9, 0.9);
+  -o-transform: scale3d(0.9, 0.9, 0.9);
+  -ms-transform: scale3d(0.9, 0.9, 0.9);
+  transform: scale3d(0.9, 0.9, 0.9);
+  -webkit-transition: all 0.2s ease;
+  -moz-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  -ms-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  &.visible {
+    -webkit-transform: scale3d(1, 1, 1);
+    -moz-transform: scale3d(1, 1, 1);
+    -o-transform: scale3d(1, 1, 1);
+    -ms-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    -ms-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+  }
+  header {
+    padding: 10px 20px;
+    background: url('../img/popup_header_gradient.gif') repeat-x #ffcc33;
+    border-radius: 6px 6px 0 0;
+    border-bottom: solid #d0b71f 1px;
+    h3 {
+      float: left;
+      margin: 0 0;
+      color: #47380d;
+      -webkit-text-shadow: 0px 1px 0px #edcb63;
+      -moz-text-shadow: 0px 1px 0px #edcb63;
+      text-shadow: 0px 1px 0px #edcb63;
+    }
+  }
+}
+
+.button-close {
+  float: right;
+  width: 22px;
+  height: 22px;
+  background: url('../img/popup_close_button.png');
+  span {
+    display: none;
+    visibility: hidden;
+  }
+}
+
+.info-container {
+  width: 308px;
+}
+
+.info-image-container {
+  float: left;
+  width: 150px;
+}
+
+.info-text-container {
+  float: left;
+  width: 128px;
+  padding: 0 10px;
+  margin-left: 9px;
+  border-left: solid #ddd 1px;
+  p {
+    white-space: nowrap;
+  }
+}
+
+.leaflet-popup-content {
+  h3 {
+    margin: 4px 0;
+  }
+  p {
+    margin: 4px 0 12px 0;
+  }
+}
+
+.button-info-extended-container {
+  text-align: right;
+}
+
+.button-info-extended {
+  text-decoration: none;
+  padding-right: 16px;
+  background: url('../img/popup_info_extended.png') no-repeat center right;
+}
+
+.popup-extended-info {
+  padding: 20px;
+}
+
+.popup-extended-info-data {
+  float: left;
+}
+
+.popup-extended-info-image {
+  float: right;
+}
+
+.popup-extended footer {
+  padding: 20px;
+  background: #f8f8f8;
+  border-radius: 0 0 6px 6px;
+  border-top: solid 1px #eee;
+  ul {
+    margin: 0 0;
+    padding: 0 0;
+    li {
+      display: inline;
+    }
+  }
+}
+
+ul.directions {
+  font-size: 12px;
+  li {
+    padding: 0 8px;
+  }
+  a {
+    color: #870d0d;
+  }
+}
+
+.hidden-extended-info {
+  display: none;
+}
+
+.clearfix {
+  clear: both;
+}
+
+/*
+HACKS FOR OVERLAY MAP
+*/
+
+#nav {
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 300px;
+  background-color: #e8dac0;
+  z-index: 1000;
+  box-shadow: 3px -2px 3px rgba(0, 0, 0, 0.2);
+  opacity: 0.95;
+  filter: alpha(opacity = 95);
+}
+
+#logo {}
+
+#subnav {
+  background-color: #f4ede0;
+  margin: 5px;
+  position: relative;
+  opacity: 1;
+  filter: alpha(opacity = 100);
+}

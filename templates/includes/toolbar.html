@@ -1,0 +1,75 @@
+<div id="toolbar" {% if request.path == '/' %}{{ " " }}class="home"{% endif %}>
+    <h1>{{ title }}</h1>
+
+    {% if nav %}
+    <ul id="nav-controls">
+            <li class="toolbar-button">
+                <a id="back-button" class="history-button touch-button history-index-ignore" href="#">
+                    <span class="icon back">x</span> Back</a>
+                </li>
+            <li class="toolbar-button">
+                <a id="forward-button" class="history-button touch-button" href="#">
+                <span class="icon forward">x</span> Forward</a>
+            </li>
+            <li class="toolbar-button">
+                <a class="touch-button" href="{{ "/"|tidehref}}"><span class="icon home">x</span> Start Over</a>
+            </li>
+    </ul>
+    {% endif %}
+
+    <div id="tool-container-touch"><a class="touch-button history-index-ignore">More Options</a></div>
+</div>
+
+<div id="tool-container" class="hidden">
+    <div id ="quick-find">
+        <ul class="button-list quick-find">
+            <li>
+                <a class="touch-button" href="{{ "/find-event/"|tidehref}}">
+                    <span class="picto events">x</span>
+                    <span class="caption">Find Event</span>
+                </a>
+            </li>
+            <li><a class="touch-button" href="{{ "/quick-find/restroom/"|tidehref}}#floor-{{ config.DEFAULT_FLOOR }}">
+                    <span class="picto unisex">x</span>
+                    <span class="caption">Restrooms</span>
+                </a>
+            </li>
+            <li>
+                <a class="touch-button" href="{{ "/quick-find/vending/"|tidehref}}#floor-{{ config.DEFAULT_FLOOR }}">
+                    <span class="picto vending">x</span>
+                    <span class="caption">Vending</span>
+                </a>
+            </li>
+            <li>
+                <a class="touch-button" href="{{ "/quick-find/atm/"|tidehref}}#floor-{{ config.DEFAULT_FLOOR }}">
+                    <span class="picto atm">x</span>
+                    <span class="caption">ATMs</span>
+                </a>
+            </li>
+            <li>
+                <a class="touch-button" href="{{ "/quick-find/kiosk/"|tidehref}}#floor-{{ config.DEFAULT_FLOOR }}">
+                    <span class="picto kiosk">x</span>
+                    <span class="caption">Internet Kiosks</span>
+                </a>
+            </li>
+            <li>
+                <a class="touch-button" href="{{ "/campus-map/"|tidehref}}">
+                    <span class="picto map">x</span>
+                    <span class="caption">Campus Map</span>
+                </a>
+            </li>
+            <li>
+                <a class="touch-button" href="{{ "/quick-find/tunnels-and-parking/"|tidehref}}#floor-{{ config.DEFAULT_FLOOR }}">
+                    <span class="picto enter">x</span>
+                    <span class="caption">Tunnels &amp; Parking</span>
+                </a>
+            </li>
+            <li>
+                <a class="touch-button" href="{{ "/quick-find/phone/"|tidehref}}#floor-{{ config.DEFAULT_FLOOR }}">
+                    <span class="picto phone">x</span>
+                    <span class="caption">Phones</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>

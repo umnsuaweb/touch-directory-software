@@ -1,0 +1,24 @@
+.DS_Store
+*pyc
+*.sass-cache
+static/.webassets-cache/
+.python-version
+
+quick-find-backup.js
+vems-eventsbckup.js
+
+Resources
+tideSDK/Coffman Memorial Union South/packages/osx/bundle/Coffman Memorial Union South.dmg
+tideSDK/Coffman Memorial Union South/packages/osx/bundle/Coffman Memorial Union South.app/
+tideSDK/Coffman Memorial Union North/packages/osx/bundle/Coffman Memorial Union North.dmg
+tideSDK/Coffman Memorial Union North/packages/osx/bundle/Coffman Memorial Union North.app
+tideSDK/Coffman Memorial Union North/packages/osx/bundle/Coffman Memorial Union Cube.dmg
+tideSDK/Coffman Memorial Union North/packages/osx/bundle/Coffman Memorial Union Cube.app/
+tideSDK/Coffman Memorial Union Cube/packages/osx/bundle/Coffman Memorial Union Cube.app/Contents
+tideSDK/Coffman Memorial Union Cube/packages/osx/bundle/Coffman Memorial Union Cube.dmg
+
+node_modules
+
+packaged-apps/*.dmg
+# Always store .gitkeep files
+!.gitkeep

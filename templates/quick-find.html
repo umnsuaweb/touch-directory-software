@@ -1,0 +1,56 @@
+{%- extends "layout/directory.html" -%}
+
+{%- block css -%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ "/static/css/minified/quick-find.min.css"|tidesrc }}">
+{%- endblock css -%}
+
+{%- block js -%}
+    {{ super() }}
+    <script src="{{ "/static/js/pages/quick-find.js"|tidesrc }}"></script>
+{%- endblock js -%}
+
+{%- block body -%}
+<div id="quick-find-floor-map" data-category="{{ category }}">
+    <div id="diagram-pane-container">
+        <div id="diagram-pane" class="animate">
+            {%- for diagram in diagrams -%}
+                {%- include 'includes/diagram.html' -%}
+            {%- endfor -%}
+        </div>
+    </div>
+    <div id="diagram-title"><h2>{{ config.BUILDING_NAME }}</h2></div>
+</div>
+
+<div id="diagram-tools">
+    <ul class="button-list" id="floors">
+        {%- for floor_slug in floor_finders -%}
+        <li>
+            <a id="{{ floor_slug }}-link" href="#" class="touch-button floor-button" data-floor="{{ floor_slug }}" data-floor-text="{{ floor_slug|deslugify }}">
+                <span class="floor-label">{{ floor_slug|deslugify }}</span> 
+                <span class="floor-count">{{ floor_counts[floor_slug] }}</span>
+            </a>
+        </li>
+        {%- endfor -%}
+    </ul>
+
+    {%- if legend_categories|length > 1 -%}
+    <div id="legend">
+        <h3 class="button-header">Legend</h3>
+
+        <ul class="button-list quick-find">
+            {%- for category_slug in legend_categories -%}
+            <li>
+                <a href="#{{ category_slug }}" rel="{{ category_slug }}" data-category="{{ category_slug }}" class="touch-button qf-legend-link">
+                    <img src="{{ "/static/css/images/markers/"|tidesrc }}{{ category_slug }}.png" alt="{{ config.CATEGORIES[category_slug] }}" />{{ config.CATEGORIES[category_slug] }}
+                </a>
+            </li>
+            {%- endfor -%}
+        </ul>
+
+        <div style="clear:both"></div>
+    </div>
+    {%- endif -%}
+</div>
+
+{%- endblock body -%}

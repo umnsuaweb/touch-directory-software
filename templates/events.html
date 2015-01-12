@@ -1,0 +1,59 @@
+{%- extends "layout/directory.html" -%}
+
+{%- block css -%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ "/static/css/minified/find-event.min.css"|tidesrc }}">
+{%- endblock css -%}
+
+{%- block js -%}
+{{ super() }}
+    <script>
+    var ems_rooms_to_locations = {};
+    {%- for room in ems_rooms -%}
+        ems_rooms_to_locations['{{ room.room }}'] = {'id': {{ room.location_id }}, 'title': '{{ room.location.title }}'};
+    {%- endfor -%}
+
+    </script>
+    <script src="{{ "/static/js/minified/pages.min.js"|tidesrc }}"></script>
+    <script src="{{ "/static/js/minified/find-event.min.js"|tidesrc }}"></script>
+    <script id="events-template" type="text/x-handlebars-template">
+    {%- raw -%}
+    <div id="event-list">
+    {{#each events}}
+        <div id="event-page-{{ @index }}" class="page">
+            <table>
+                <thead>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Event</th>
+                        <th>Room</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {{#each this}}
+                    <tr class="tr-has-link">
+                        <td><a href="{{#if freezing}}app:/{{/if}}/view-location/{{ this.room_data.id }}/" class="touch-button arrow event"><span>Go to Event</span></a></td>
+                        <td>{{formatVemsTime this.start }}</td>
+                        <td>{{formatVemsTime this.end }}</td>
+                        <td>{{ this.name }}</td>
+                        <td><a href="{{#if freezing}}app:/{{/if}}/view-location/{{ this.room_data.id }}/">{{{ this.room_data.title }}}</a></td>
+                    </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    {{/each}}
+    </div>
+    {{{buildPageButtons events}}}
+    {%- endraw -%}
+    </script>
+{%- endblock js -%}
+
+{%- block body -%}
+<div id="event-list-container">
+    <p id="loading-message" class="loading">Retrieving data from events headquarters...</p>
+    <p class="loading"><img src="/static/images/ajax-loader.gif" alt="Loading indicator."></p>
+</div>
+{%- endblock -%}

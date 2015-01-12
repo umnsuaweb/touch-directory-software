@@ -1,0 +1,24 @@
+@import "home.scss";
+@import "home-cmu.scss";
+
+/*--------------------------------------------------
+[Home Screen CMU Cube Stylesheet]
+
+Author(s):	 SUA Web Team
+
+[Table of contents]
+1. Layout
+
+--------------------------------------------------*/
+
+/* ----- [1. Layout] ----- */
+
+div#home-container div {
+  &#home-floor-map {
+    right: 100px;
+    top: 180px;
+  }
+  &#diagram-title {
+    left: 165px;
+  }
+}

@@ -1,0 +1,47 @@
+{%- extends "layout/directory.html" -%}
+
+{%- block css -%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ "/static/css/minified/view-location.min.css"|tidesrc }}">
+{%- endblock css -%}
+
+{%- block js -%}
+    {{ super() }}
+    <script src="{{ "/static/js/minified/view-location.min.js"|tidesrc }}"></script>
+    <script>
+        var floor = "{{ destination.floor_slug }}";
+    </script>
+    <script src="{{ "/static/js/minified/pages.min.js"|tidesrc }}"></script>
+{%- endblock js -%}
+
+{%- block body -%}
+
+{%- include 'includes/diagram.html' -%}
+
+<div id="location-details">
+    <h2>{{ destination.title }}</h2>
+
+    {%- if destination.description_short -%}
+        <h3>{{ destination.description_short }}</h3>
+    {%- endif -%}
+
+    <dl class="details">
+        <dt class="room">Located on&nbsp;</dt>
+        <dd class="room">{{ destination.floor_slug|deslugify }}, Room&nbsp;{{ destination.room }}</dd>
+
+        {%- if destination.phone -%}
+        <dt class="phone">Phone</dt>
+        <dd class="phone">{{ destination.phone }}</dd>
+        {%- endif -%}
+    </dl>
+
+    {%- if diagram.destination.photo -%}
+    <a class="photo touch-button fancybox history-index-ignore" href="{{ diagram.destination.photo|tidesrc }}"><img src="{{ diagram.destination.photo|tidesrc }}" width="100" alt="Photo." /><span>Zoom</span></a>
+    {%- endif -%}
+
+    {{ destination.description_long }}
+
+    <p class="align-center start-over"><a class="touch-button" href="{{ "/"|tidehref }}">Start Your Search Over</a></p>
+
+</div>
+{%- endblock body -%}

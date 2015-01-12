@@ -1,0 +1,42 @@
+{%- extends "layout/directory.html" -%}
+
+{%- block css -%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ "/static/css/minified/by-floor.min.css"|tidesrc }}">
+{%- endblock css -%}
+
+{%- block js -%}
+    {{ super() }}
+    <script>
+        var floor = "{{ floor_slug }}";
+    </script>
+    <script src="{{ "/static/js/minified/pages.min.js"|tidesrc }}"></script>
+{%- endblock js -%}
+
+{%- block body -%}
+
+{%- include 'includes/diagram.html' -%}
+
+<div id="location-list" class="columns-{{ column_count }}">
+    {%- for spaces in columnar_spaces -%}
+        {%- if column_count > 1 -%}
+            <div class="column">
+        {%- endif -%}
+                <table>
+                    <tbody>
+                        {%- for space in spaces|sort(attribute='title') -%}
+                            {%- if space.title|length > 0 -%}
+                                <tr>
+                                    <th class="tr-has-link"><a href="{{ "/view-location/"|tidesrc}}{{ space.id }}{{"/"|tide_after_href }}">{{ space.title }}</a></th>
+                                    <td>{{ space.room }}</td>
+                                </tr>
+                            {%- endif -%}
+                        {%- endfor -%}
+                    </tbody>
+                </table>
+        {%- if column_count > 1 -%}
+            </div>
+        {%- endif -%}
+    {% endfor %}
+</div>
+{%- endblock body -%}

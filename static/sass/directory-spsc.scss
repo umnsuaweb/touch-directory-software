@@ -1,0 +1,66 @@
+@import "directory";
+
+/*--------------------------------------------------
+[St. Paul Student Center Stylesheet]
+
+Author(s):   SUA Web Team
+
+[Table of contents]
+Floor selector
+Touch-directory marker
+Scrollable floors
+Compass
+Home Page
+Easter Egg
+--------------------------------------------------*/
+
+/* ----- [Floor selector] ----- */
+
+#toolbar.home {
+    z-index: 1;
+}
+
+/* ----- [Touch-directory marker] ----- */
+
+canvas.touch-directory {
+    -webkit-transform: rotate(85deg) skew(0deg, 0deg);
+}
+
+/* ----- [Scrollable floors] ----- */
+
+div {
+    &#diagram-pane {
+        top: -1130px;
+    }
+    &#second-floor {
+        top: 0px;
+    }
+    &#first-floor {
+        top: 565px;
+    }
+    &#lower-level {
+        top: 1130px;
+    }
+    &#compass {
+        background: url(images/compass-spsc.png) no-repeat;
+        height: 82px;
+        left: 1140px;
+        position: absolute;
+        top: 100px;
+        width: 150px;
+    }
+    &#home-container div#compass {
+        left: 550px;
+        top: 250px;
+    }
+    &#location-list table.long-rooms tr td {
+        width: 75px;
+        /* We have an extra long room listing in St. Paul */
+    }
+    &#easter-egg {
+        left: 200px;
+        position: absolute;
+        top: 20px;
+        z-index: 2;
+    }
+}

@@ -1,0 +1,35 @@
+#by-floor-floor-map {
+    height: 650px;
+    position: absolute;
+    right: 65px;
+    &.first-floor {
+        right: 25px;
+    }
+    #diagram-title {
+        bottom: 0px;
+        left: 200px;
+        position: absolute;
+    }
+}
+
+#location-list {
+    height: 630px;
+    max-width: 31%;
+    z-index: 9999;
+    .category-container {
+        float: left;
+        max-width: 250px;
+    }
+}
+
+.cmu #by-floor-floor-map.columns-2.ground-floor {
+  right: 85px;
+}
+
+#by-floor-floor-map.columns-2 #diagram-title {
+    left: 140px;
+}
+
+.category {
+    float: left;
+}

@@ -1,0 +1,22 @@
+The SUA touch directory is an ongoing effort and has benefited from
+contributions by numerous designers and developers.
+
+Zach Johnson created original concepts, design, and usability for the project.
+He led implementation on the original first floor directory Coffman Union in
+2009-2010.
+
+Ken Loomis and Tony Thomas continued to improve the interface since then, added
+two more directories in Coffman Union, implemented a directory interface for
+the St. Paul Student Center, and ported the PHP codebase to Python in March
+2014.
+
+Trent Raygor installed, configured, and deployed all hardware and system
+settings for the machines.
+
+Major student contributors have included:
+
+- Kamran Ayub
+- Ellie Drotning
+- Ethan Poole
+- Ben Demaree
+- Savina Proykova

@@ -1,0 +1,6 @@
+/* line 1 */
+div#map_canvas {
+  border: 1px solid #999;
+  height: 600px !important;
+  width: 1350px !important;
+}

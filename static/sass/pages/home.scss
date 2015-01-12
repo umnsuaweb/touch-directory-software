@@ -1,0 +1,37 @@
+/*--------------------------------------------------
+[Home Screen Stylesheet]
+
+Author(s):	 SUA Web Team
+
+[Table of contents]
+1. List
+2. Info desk button
+
+--------------------------------------------------*/
+
+/* ----- [1. List] ----- */
+
+div {
+  &#location-list {
+    div#quick-find h3 {
+      height: 0.9em;
+    }
+    ul.button-list.text {
+      margin-top: 26px;
+      li {
+        margin-bottom: 10px;
+        a.touch-button {
+          font-size: 1.7em;
+          line-height: 2em;
+          width: 230px;
+        }
+      }
+    }
+  }
+  &#home-container div#diagram-title {
+    width: 340px;
+    h2 {
+      font-size: 2em;
+    }
+  }
+}

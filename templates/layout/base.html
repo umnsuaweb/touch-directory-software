@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>{% block title %}Directory{% endblock title %}</title>
+    {%- block meta -%}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    {%- endblock meta -%}
+
+    {%- block css -%}
+
+    {# No cursor on production site #}
+    {%- if not config.DEBUG -%}
+    <link rel="stylesheet" href="{{ "/static/css/minified/no-cursor.min.css"|tidesrc }}" type="text/css" media="screen" />
+    {%- endif -%}
+    <link rel="stylesheet" href="{{ "/static/js/jquery.plugins/jquery.fancybox.media/jquery.fancybox-1.3.0.min.css"|tidesrc }}" type="text/css" media="screen" />
+
+    <link rel="icon" href="{{ "/static/images/favicon.png"|tidesrc }}" type="image/png" />
+    {%- endblock css -%}
+    
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','__gaTracker');
+
+    __gaTracker('create', '{{ config.ANALYTICS }}', {
+        'cookieDomain': 'none'
+    });
+    __gaTracker('set', 'forceSSL', true);
+    __gaTracker('send', 'pageview');
+
+    </script>
+</head>
+
+<body>
+    <div id="viewport" class="{{ config.BUILDING_SLUG }} {{ config.ORIENTATION_SLUG }}">
+
+        {%- include 'includes/toolbar.html' -%}
+
+        {%- if floor_selector -%}
+        {%- include 'includes/floor-selector.html' -%}
+        {%- endif -%}
+
+        {%- block body -%}
+        {%- endblock body -%}
+
+        <p id="time">{{ time.strftime('%I:%M%p %b %d') }}</p>
+    </div>
+
+    {%- block js -%}
+
+    {# Configuration Bridge #}
+    <script type="text/javascript">
+        var BASE_HREF = '',
+            BUILDING = '{{ config.BUILDING_SLUG }}',
+            orientation = '{{ config.ORIENTATION_SLUG }}',
+            DIRECTORY = '{{ config.DIRECTORY_SLUG }}',
+            DEFAULT_FLOOR = '{{ config.DEFAULT_FLOOR }}',
+            DEBUG = {{ config.DEBUG|lower }},
+            floor = '{{ config.DEFAULT_FLOOR }}',
+            FREEZING = {{ config.FREEZING|lower }};
+    </script>
+
+    <script src="{{ "/static/js/minified/directory.min.js"|tidesrc }}"></script>
+    <script src="{{ "/static/js/history.js"|tidesrc }}"></script>
+    <script>
+        {% if destination_floor %}
+        var fsc = new FloorSelectorController();
+        fsc.run(DEFAULT_FLOOR, '{{ destination_floor }}');
+        {% endif %}
+    </script>
+
+    {%- endblock js -%}
+</body>
+</html>

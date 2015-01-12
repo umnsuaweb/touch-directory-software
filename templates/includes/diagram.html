@@ -1,0 +1,45 @@
+<div id="{{ diagram.diagram_slug }}" class="floor diagram-container">
+    <div class="diagram{{ " " }}{{ diagram.floor_slug }}-diagram" style="width: {{ diagram.width }}px; height: {{ diagram.height }}px;">
+        <img class="diagram bottom" width="{{ diagram.width }}" height="{{ diagram.height }}" src="{{ "/"|tidesrc ~ diagram.scaled_path ~ diagram.floor_slug  ~ "-bottom.png" }}" alt="{{ diagram.floor_slug }}{{ " " }}diagram component." />
+        <img class="diagram top" width="{{ diagram.width }}" height="{{ diagram.height }}" src="{{ "/"|tidesrc ~ diagram.scaled_path ~ diagram.floor_slug ~ "-top.png" }}" alt="{{ diagram.floor_slug }}{{ " " }}diagram component." />
+
+        {% for marker in diagram.markers %}
+            {% if marker.type == 'object' %}
+            <div class="marker-box{{ " " }}{{ marker.category }}" data-id="{{ marker.id }}" style="left: {{ marker.left }}px; top: {{ marker.top }}px; z-index: {{ marker.z }};">
+                <div class="marker-inner" style="background: url(/static/css/images/markers/{{ marker.category }}.png)">{{ marker.category }}</div>
+                {% if marker.slug == 'touch-screen-building-directory' %}
+                <div class="marker-inner" style="background: url(/static/css/images/markers/touch-directory.png)">touch-directory</div>
+                <canvas class="touch-directory" width="50" height="50"></canvas>
+                {% endif %}
+            </div>
+            {% elif marker.type == 'space' %}
+            <div class="marker-box space" data-id="{{ marker.id }}" style="left: {{ marker.left }}px; top: {{ marker.top }}px; z-index: {{ marker.z }};">
+                <div class="marker-inner"><a href="{{ "/view-location/"|tidehref }}{{ marker.id }}/">{{ marker.room }}</a></div>
+                <div class="description-container">
+                    <div class="description" data-id="{{ marker.id }}">To{{ " " }}{{ marker.floor_slug|deslugify }}</div>
+                </div>
+            </div>
+            {% endif %}
+        {% endfor %}
+
+        {% if diagram.destination %}
+        <div class="marker-box space destination" style="left: {{ diagram.destination.left }}px; top: {{ diagram.destination.top }}px; z-index: {{ diagram.destination.z }};">
+            <canvas class="destination" width="50" height="50"></canvas>
+            <div class="marker-inner">
+                <a href="{{ "/view-location/"|tidehref }}{{ diagram.destination.id }}/">Destination</a>
+            </div>
+        </div>
+        {% endif %}
+
+        {% if diagram.origin %}
+        <div class="marker-box touch-directory" style="left: {{ diagram.origin.left }}px; top: {{ diagram.origin.top }}px; z-index: {{ diagram.origin.z }};">
+            <canvas class="touch-directory" width="50" height="50"></canvas>
+            <div class="marker-inner" style="background: url(/static/css/images/markers/touch-directory.png)">touch-directory</div>
+        </div>
+        {% endif %}
+    </div>
+
+    {% if not is_quick_find_page %}
+    <div id="diagram-title"><h2>{{ config.BUILDING_NAME }}</h2></div>
+    {% endif %}
+</div>

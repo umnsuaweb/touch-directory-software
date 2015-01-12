@@ -1,0 +1,15 @@
+@import "directory";
+
+#home-container #location-list {
+    height: 658px;
+    width: 810px;
+    div.third h3:first-child {
+        margin-top: 0px;
+    }
+}
+#easter-egg {
+    left: 680px;
+    position: absolute;
+    top: 280px;
+    z-index: 2;
+}

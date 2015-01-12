@@ -1,0 +1,120 @@
+/*--------------------------------------------------
+[Location View Stylesheet]
+
+Author(s):	 SUA Web Team
+
+[Table of contents]
+1. Layout
+2. Location details
+	2.1. Details
+	2.2. Photo
+
+--------------------------------------------------*/
+/* ----- [1. Layout] ----- */
+/* line 16 */
+#location-details-floor-map {
+  position: relative;
+}
+/* line 18 */
+#location-details-floor-map div.diagram {
+  left: 495px;
+  position: absolute;
+  top: 20px;
+}
+/* line 22 */
+#location-details-floor-map div.diagram.second-floor {
+  left: 470px;
+}
+/* line 25 */
+#location-details-floor-map div.diagram.ground-floor {
+  left: 465px;
+}
+/* line 28 */
+#location-details-floor-map div.diagram.basement {
+  left: 455px;
+}
+/* line 32 */
+#location-details-floor-map #diagram-title {
+  left: 470px;
+  position: absolute;
+  top: 560px;
+}
+
+/* ----- [2. Location details] ----- */
+/* line 41 */
+#location-details {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.6);
+  color: #FFF;
+  padding: 10px;
+  width: 420px;
+}
+/* line 48 */
+#location-details h2 {
+  font-size: 2.9em;
+  line-height: 100%;
+  margin: 0px 0px 0.2em;
+}
+/* line 53 */
+#location-details h3 {
+  color: #f7b315;
+  margin: 0px 0px 0.5em;
+}
+/* line 57 */
+#location-details p.start-over {
+  clear: both;
+  padding-top: 10px;
+}
+/* line 61 */
+#location-details dl {
+  border-bottom: 1px solid #9A2036;
+  font-family: "Chalet-LondonNineteenEighty", "Lucida Grande", Arial, sans-serif;
+  margin-bottom: 1em;
+  padding-bottom: 0.5em;
+}
+/* line 66 */
+#location-details dl dt, #location-details dl dd {
+  display: inline;
+}
+/* line 69 */
+#location-details dl dt.phone:before {
+  content: "- ";
+}
+/* line 73 */
+#location-details dt.floor-map {
+  display: none;
+}
+/* line 76 */
+#location-details dd.floor-map {
+  display: block;
+  margin: 5px 0px;
+}
+/* line 80 */
+#location-details a.photo {
+  display: inline-block;
+  float: right;
+  margin-left: 7px;
+  padding: 7px 7px 2px 7px;
+  text-align: center;
+}
+/* line 86 */
+#location-details a.photo img {
+  -webkit-border-radius: 10px;
+}
+/* line 89 */
+#location-details a.photo span {
+  background: url(../images/icon-zoom.png) no-repeat left center;
+  display: block;
+  margin: 2px auto;
+  padding-left: 20px;
+  width: 40px;
+}
+
+/* ----- [2.1. Details] ----- */
+/* ----- [2.2. Photo] ----- */
+/* line 103 */
+#fancybox-overlay {
+  z-index: 1000;
+  /* Since overlay is transparent, "truly" make everywhere close the image */
+}
