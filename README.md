@@ -2,7 +2,7 @@
 
 This is a Python/Flask port of the [Student Unions and Activities (SUA)](http://sua.umn.edu) Touch Directory application, found in [Coffman Memorial Union](http://sua.umn.edu/about/coffman/) and [St. Paul Student Center](http://sua.umn.edu/about/st-paul-student-center/).
 
-![Preview Screenshot](https://github.umn.edu/SUA/touch-directory/raw/master/static/preview.png)
+![Preview Screenshot](https://github.com/umnsuaweb/touch-directory-software/raw/master/static/preview.png)
 
 ## Installation on Mac OS X
 
